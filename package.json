@@ -1,0 +1,14 @@
+{
+  "name": "afk-bot",
+  "version": "1.0.0",
+  "description": "an afk bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DeJayDev",
+  "license": "WTFPL",
+  "dependencies": {
+    "minecraft-protocol": "^1.9.4"
+  }
+}
