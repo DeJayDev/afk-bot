@@ -1,4 +1,4 @@
-module.exports = (client, event) => {
-    console.log('Bot > Disconnected! Reason: ' + event.reason)
-    throw new Error(event)
+module.exports = (client, packet) => {
+    console.log('Bot > Disconnected! Reason: ' + packet.reason)
+    throw new Error(packet)
 }

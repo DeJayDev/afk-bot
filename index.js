@@ -9,13 +9,13 @@ var client = mc.createClient({
   password: config.password,
 })
 
-fs.readdir('./packets/', (err, evtFile) => {
+fs.readdir('./packets/', (err, files) => {
   if (err) throw new Error("No packets to load.")
   console.log('Loading: ')
-  evtFile.forEach(file => {
-    const eventName = file.split(".")[0]
-    console.log(`* ${eventName}`.replace('.js', ''))
-    const event = require(`./packets/${file}`)
-    client.on(eventName, event.bind(this, client))
+  files.forEach(file => {
+    const packetName = file.split(".")[0]
+    console.log(`* ${packetName}`.replace('.js', ''))
+    const packet = require(`./packets/${file}`)
+    client.on(packetName, packet.bind(this, client))
   })
 })

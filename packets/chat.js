@@ -1,18 +1,26 @@
-module.exports = (client, event) => {
-    var jsonMsg = JSON.parse(event.message).extra
-    
-    if(!jsonMsg) return;
+module.exports = (client, packet) => {
+    var jsonMsg = JSON.parse(packet.message).extra
+
+    if (!jsonMsg) return;
     jsonMsg = jsonMsg[0].text
 
     let username = jsonMsg.match(/<[A-z]+?>/)
 
     if (!username) return;
     if (!username[0].includes('<')) return;
-    let sentMsg = jsonMsg.replace(username[0], '')
+    let sentMsg = jsonMsg.replace(username[0], '').trim();
     username = username[0].replace('<', '').replace('>', '')
-    if (username === client.username) return;
+    if (username === client.username) return
 
-    client.write('chat', {
-        message: sentMsg
-    });
+    console.log(sentMsg)
+
+    switch (sentMsg) {
+        case client.username:
+            client.write('chat', {message: 'I am a bot.'});
+            break;
+        case 'b!pos':
+            client.write('chat', {message: 'he do not sing'});
+        default:
+            break;
+    }
 }
