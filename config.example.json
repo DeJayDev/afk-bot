@@ -1,6 +1,7 @@
 {
-"username": "",
-"password": "",
-"host": "",
-"port": 25565
+    "username": "",
+    "password": "",
+    "host": "",
+    "port": 25565,
+    "prefix": "b!"
 }

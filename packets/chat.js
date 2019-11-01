@@ -1,3 +1,5 @@
+var config = require('../config.json')
+
 module.exports = (client, packet) => {
     var jsonMsg = JSON.parse(packet.message).extra
 
@@ -18,7 +20,7 @@ module.exports = (client, packet) => {
         case client.username:
             client.write('chat', {message: 'I am a bot.'});
             break;
-        case 'b!pos':
+        case config.prefix + 'pos':
             client.write('chat', {message: 'he do not sing'});
         default:
             break;

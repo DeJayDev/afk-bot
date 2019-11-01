@@ -9,6 +9,9 @@ var client = mc.createClient({
   password: config.password,
 })
 
+// Client wide variables.
+client.position = '';
+
 fs.readdir('./packets/', (err, files) => {
   if (err) throw new Error("No packets to load.")
   console.log('Loading: ')
